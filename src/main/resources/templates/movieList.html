@@ -28,41 +28,43 @@
     <link th:href="@{/assets/css/style.css}" rel="stylesheet">
 </head>
 <body>
-<header id="header" class="fixed-top header-transparent">
-    <div class="container d-flex align-items-center justify-content-between">
+<!--<header id="header" class="fixed-top header-transparent">-->
+<!--    <div class="container d-flex align-items-center justify-content-between">-->
 
-        <div class="logo">
-            <h1 class="text-light"><a th:href="@{/movieSearch/}"><span>TITUS</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>
-        </div>
+<!--        <div class="logo">-->
+<!--            <h1 class="text-light"><a th:href="@{/movieSearch/}"><span>TITUS</span></a></h1>-->
+<!--            &lt;!&ndash; Uncomment below if you prefer to use an image logo &ndash;&gt;-->
+<!--            <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+<!--        </div>-->
 
-        <nav id="navbar" class="navbar">
-            <ul>
-                <li><a th:href="@{/movieSearch/}">Home</a></li>
-                <li><a th:href="@{/movieSearch/about}">About Us</a></li>
-                <li><a th:href="@{/movieSearch/contact}">Contact</a></li>
-            </ul>
-            <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- .navbar -->
+<!--        <nav id="navbar" class="navbar">-->
+<!--            <ul>-->
+<!--                <li><a th:href="@{/movieSearch/}">Home</a></li>-->
+<!--                <li><a th:href="@{/movieSearch/about}">About Us</a></li>-->
+<!--                <li><a th:href="@{/movieSearch/contact}">Contact</a></li>-->
+<!--            </ul>-->
+<!--            <i class="bi bi-list mobile-nav-toggle"></i>-->
+<!--        </nav>&lt;!&ndash; .navbar &ndash;&gt;-->
 
-    </div>
-</header>
+<!--    </div>-->
+<!--</header>-->
 
 <section id="hero">
     <img th:src="@{/assets/img/contactus.jpg}" id="myVideo" alt="img"/>
+
     <div class="hero-container" data-aos="fade-up">
-        <div class="upPage" th:each="movie : ${movies}">
+        <div th:each="movie : ${movies}">
             <h2 th:text="${movie.movieName}"></h2>
             <img alt="" th:src="${movie.movieCoverImage}"/>
             <p th:text="${movie.yearOfProduction}"></p>
             <a th:href="${movie.linkToMovieTrailer}" target="_blank" th:text="${movie.linkToMovieTrailer}"></a>
         </div>
-            <h2>We Help You Look For Your Favorite Movies <i class="fa fa-film" style="font-size:48px;color:white"></i>
-            </h2>
-            <a  th:href="@{/movieSearch/}"><h2>If You Can Remember It, Then We Can Find It <i class="fa fa-search" style="font-size:48px;color:white"></i>
-            </h2></a>
-            <a href="https://www.github.com/onabanjoTitus"><h2>Click on the phone icon for details<i class="fa fa-phone" style="font-size:48px;color:white"></i></h2> </a>
+        <h2>We Help You Look For Your Favorite Movies <i class="fa fa-film" style="font-size:48px;color:white"></i>
+        </h2>
+        <a  th:href="@{/movieSearch/}"><h2>If You Can Remember It, Then We Can Find It <i class="fa fa-search" style="font-size:48px;color:white"></i>
+        </h2></a>
+        <a href="https://www.github.com/onabanjoTitus"><h2>Click on the phone icon for details<i class="fa fa-phone" style="font-size:48px;color:white"></i></h2> </a>
+
     </div>
 
 </section>

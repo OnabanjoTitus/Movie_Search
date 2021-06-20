@@ -39,7 +39,7 @@ public class MovieServicesImpl implements MovieServices {
         search.setQ(movieName);
         search.setType("video");
         search.setFields ("items(id/kind,id/videoId,snippet/title,snippet/description,snippet/publishedAt,snippet/thumbnails/default/url)");
-        search.setMaxResults(20L);
+        search.setMaxResults(4L);
         SearchListResponse searchListResponse=search.execute();
        List<SearchResult>searchResults =searchListResponse.getItems();
         log.info("Movie found are -->{}",searchResults);
