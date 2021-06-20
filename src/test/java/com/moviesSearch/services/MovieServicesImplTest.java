@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.io.IOException;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -32,7 +33,7 @@ class MovieServicesImplTest {
         assertThat(movieList.size()).isEqualTo(3);
     }
     @Test
-    void testThatWeCanFindMoviesByKeywords() throws MovieNameCannotBeNullException {
+    void testThatWeCanFindMoviesByKeywords() throws MovieNameCannotBeNullException, IOException {
         List<Movie>movieList=movieServices.findMoviesByName("i");
         log.info("All the movies found are-->{}",movieList);
         assertThat(movieList.size()).isEqualTo(2);

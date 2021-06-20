@@ -14,7 +14,7 @@ public class Movie {
     @Id
     private String movieName;
     @Column(nullable = false)
-    private Integer yearOfProduction;
+    private String yearOfProduction;
     @Column(nullable = false)
     private String movieCoverImage;
     @Column(nullable = false)
