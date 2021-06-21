@@ -34,7 +34,7 @@ public class MovieServicesImpl implements MovieServices {
             throw new MovieNameCannotBeNullException("The Search Cannot Be Null");
         }
         YouTube.Search.List search=youTube.search().list("id,snippet");
-        String apiKey = System.getenv("API_PASSWORD");
+        String apiKey ="AIzaSyDPuMXkKgppEj57I-GJCOUskKThCMymHoA";
         search.setKey(apiKey);
 
         search.setQ(movieName);
