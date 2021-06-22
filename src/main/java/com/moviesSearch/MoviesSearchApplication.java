@@ -10,8 +10,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class MoviesSearchApplication {
-	@Autowired
-	YouTube youTube;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(MoviesSearchApplication.class, args);
