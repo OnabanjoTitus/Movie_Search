@@ -46,7 +46,6 @@ public class MovieServicesImpl implements MovieServices {
         log.info("Movie found are -->{}",searchResults);
         List<Movie> movieList=new ArrayList<>();
 
-//               movieRepository.findMoviesByMovieNameContainingOrderByYearOfProduction(movieName);
         if(searchResults!=null){
             for(SearchResult result:searchResults){
                 Movie movie= new Movie();
@@ -56,12 +55,7 @@ public class MovieServicesImpl implements MovieServices {
                 movie.setYearOfProduction(result.getSnippet().getDescription());
                 movieList.add(movie);
             }
-
-
-//            return null;
-//            movieRepository.findAll().stream()
-//                    .filter(movie -> movie.getMovieName().contains(movieName))
-//                    .collect(Collectors.toList());
+            log.info("The items found are -->{}",movieList);
         }
        return movieList;
     }
