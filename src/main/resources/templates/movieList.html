@@ -51,12 +51,17 @@
 
 <section id="hero">
     <img th:src="@{/assets/img/contactus.jpg}" id="myVideo" alt="img"/>
+    <div class="hero-container" data-aos="fade-up">
+        <br>
+        <br>
+    </div>
 
     <div class="hero-container" data-aos="fade-up">
         <div th:each="movie : ${movies}">
+
             <h2 th:text="${movie.movieName}"></h2>
             <img alt="" th:src="${movie.movieCoverImage}"/>
-            <p th:text="${movie.yearOfProduction}"></p>
+            <h2 th:text="${movie.yearOfProduction}"></h2>
             <a th:href="${movie.linkToMovieTrailer}" target="_blank" th:text="${movie.linkToMovieTrailer}"></a>
         </div>
         <h2>We Help You Look For Your Favorite Movies <i class="fa fa-film" style="font-size:48px;color:white"></i>

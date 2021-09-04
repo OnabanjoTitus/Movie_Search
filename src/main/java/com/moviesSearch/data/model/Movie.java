@@ -1,8 +1,11 @@
 package com.moviesSearch.data.model;
 
+import com.google.api.client.util.DateTime;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -14,10 +17,11 @@ public class Movie {
     @Id
     private String movieName;
     @Column(nullable = false)
-    private String yearOfProduction;
+    private DateTime yearOfProduction;
     @Column(nullable = false)
     private String movieCoverImage;
     @Column(nullable = false)
     private String linkToMovieTrailer;
+
 
 }

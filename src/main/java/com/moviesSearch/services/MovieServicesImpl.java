@@ -20,8 +20,10 @@ public class MovieServicesImpl implements MovieServices {
 
     @Autowired
     MovieRepository movieRepository;
+
     @Autowired
     YouTube youTube;
+
     @Override
     public List<Movie> findAllMovies() {
         return movieRepository.findAll();
@@ -42,8 +44,8 @@ public class MovieServicesImpl implements MovieServices {
         search.setFields ("items(id/kind,id/videoId,snippet/title,snippet/description,snippet/publishedAt,snippet/thumbnails/default/url)");
         search.setMaxResults(4L);
         SearchListResponse searchListResponse=search.execute();
-       List<SearchResult>searchResults =searchListResponse.getItems();
-        log.info("Movie found are -->{}",searchResults);
+        List<SearchResult>searchResults =searchListResponse.getItems();
+        log.info("Movies found are -->{}",searchResults);
         List<Movie> movieList=new ArrayList<>();
 
         if(searchResults!=null){
@@ -52,7 +54,7 @@ public class MovieServicesImpl implements MovieServices {
                 movie.setMovieName(result.getSnippet().getTitle());
                 movie.setLinkToMovieTrailer(buildVideoUrl(result.getId().getVideoId()));
                 movie.setMovieCoverImage(result.getSnippet().getThumbnails().getDefault().getUrl());
-                movie.setYearOfProduction(result.getSnippet().getDescription());
+                movie.setYearOfProduction(result.getSnippet().getPublishedAt());
                 movieList.add(movie);
             }
             log.info("The items found are -->{}",movieList);
@@ -63,7 +65,6 @@ public class MovieServicesImpl implements MovieServices {
         StringBuilder builder = new StringBuilder();
         builder.append("https://www.youtube.com/watch?v=");
         builder.append(videoId);
-
         return builder.toString();
     }
 }
